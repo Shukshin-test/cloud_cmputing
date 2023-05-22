@@ -12,10 +12,16 @@
     - name: Init hexo
       ansible.builtin.command:
         cmd: hexo init blog
-    - name: Init hexo
+    - name: Npm install
       ansible.builtin.command:
         chdir: blog
         cmd: npm install
-    - name: Init hexo
+    - name: Start server
       ansible.builtin.command:
         cmd: hexo server --port 5000
+    - name: Generate
+      ansible.builtin.command:
+        cmd: hexo generate
+    - name: Deploy
+      ansible.builtin.command:
+        cmd: hexo deploy
