@@ -18,7 +18,9 @@
         cmd: npm install
     - name: Generate
       ansible.builtin.command:
+        chdir: blog
         cmd: npm run build
     - name: Start server
       ansible.builtin.command:
+        chdir: blog
         cmd: npm run server
