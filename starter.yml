@@ -18,7 +18,7 @@
         cmd: npm install
     - name: Generate
       ansible.builtin.command:
-        cmd: npm run generate
+        cmd: npm run build
     - name: Start server
       ansible.builtin.command:
-        cmd: npm run server --port 5000
+        cmd: npm run server
