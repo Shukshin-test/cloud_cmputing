@@ -5,6 +5,10 @@
   become: true
   become_user: root
   tasks:
+    - name: Remove old Hexo folder
+      ansible.builtin.file:
+        path: /home/ubuntu/hexo/
+        state: absent
     - name: Init hexo
       ansible.builtin.command:
         cmd: hexo init blog
