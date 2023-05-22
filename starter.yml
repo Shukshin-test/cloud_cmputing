@@ -16,10 +16,6 @@
       ansible.builtin.command:
         chdir: blog
         cmd: npm install
-    - name: Generate
-      ansible.builtin.command:
-        chdir: blog
-        cmd: hexo generate
     - name: Start server
       ansible.builtin.command:
         chdir: blog
