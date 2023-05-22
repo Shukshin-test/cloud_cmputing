@@ -29,9 +29,3 @@
       ansible.builtin.command:
         chdir: /home/ubuntu/hexo/
         cmd: npm install hexo-cli -g
-    - name: Install nginx
-      ansible.builtin.command:
-        cmd: apt install nginx
-    - name: Start nginx
-      ansible.builtin.command:
-        cmd: systemctl start nginx
