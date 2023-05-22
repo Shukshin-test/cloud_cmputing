@@ -19,11 +19,10 @@
         update_cache: yes
         name: nodejs
         state: latest
-    - name: Install npm
-      apt:
-        update_cache: yes
-        name: npm
-        state: present
+    - name: install NPM
+         shell: npm i
+         args:
+           chdir: /home/ubuntu
 - name: Configure server
   hosts: myhost
   remote_user: ubuntu
