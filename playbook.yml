@@ -1,0 +1,27 @@
+---
+- name: Install node + npm
+  hosts: myhost
+  remote_user: ubuntu
+  become: true
+  become_user: root
+  tasks:
+    - name: Install node
+      apt:
+        update_cache: yes
+        name: nodejs
+        state: latest
+    - name: Install npm
+      apt:
+        update_cache: yes
+        name: npm
+        state: present
+- name: Configure server
+  hosts: myhost
+  remote_user: ubuntu
+  become: true
+  become_user: root
+  tasks:
+    - name: Install hexo by npm
+      ansible.builtin.command:
+        chdir: /home/ubuntu/hexo/
+        cmd: npm install hexo-cli -g

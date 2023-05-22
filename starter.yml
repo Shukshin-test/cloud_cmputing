@@ -1,0 +1,17 @@
+---
+- name: Run server
+  hosts: myhost
+  remote_user: ubuntu
+  become: true
+  become_user: root
+  tasks:
+    - name: Init hexo
+      ansible.builtin.command:
+        cmd: hexo init blog
+    - name: Init hexo
+      ansible.builtin.command:
+        chdir: blog
+        cmd: npm install
+    - name: Init hexo
+      ansible.builtin.command:
+        cmd: hexo server

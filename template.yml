@@ -1,0 +1,37 @@
+description: cloud service
+heat_template_version: '2015-04-30'
+parameters:
+  Network:
+    default: 17eae9b6-2168-4a07-a0d3-66d5ad2a9f0e
+    type: string
+resources:
+  Server:
+    description: chat
+    properties:
+      flavor: m1.small
+      image: ubuntu-20.04
+      key_name: shukshin_ssh_lab1
+      name: ShukshinHexo
+      networks:
+      - port:
+          get_resource: Server_port
+    type: OS::Nova::Server
+  Server_group:
+    description: Security group for server
+    properties:
+      rules:
+      - port_range_max: 22
+        port_range_min: 22
+        protocol: tcp
+      - port_range_max: 5000
+        port_range_min: 5000
+        protocol: tcp
+    type: OS::Neutron::SecurityGroup
+  Server_port:
+    description: Port for server (SSH,web)
+    properties:
+      network_id:
+        get_param: Network
+      security_groups:
+      - get_resource: Server_group
+    type: OS::Neutron::Port
