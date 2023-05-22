@@ -7,7 +7,7 @@
   tasks:
     - name: Remove old Hexo folder
       ansible.builtin.file:
-        path: /home/ubuntu/hexo/
+        path: /home/ubuntu/hexo/blog
         state: absent
     - name: Init hexo
       ansible.builtin.command:
