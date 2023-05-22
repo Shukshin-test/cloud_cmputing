@@ -21,6 +21,9 @@
   become: true
   become_user: root
   tasks:
+    - name: Create Hexo folder
+      ansible.builtin.command:
+        cmd: mkdir /home/ubuntu/hexo/
     - name: Install hexo by npm
       ansible.builtin.command:
         chdir: /home/ubuntu/hexo/
