@@ -14,4 +14,4 @@
         cmd: npm install
     - name: Init hexo
       ansible.builtin.command:
-        cmd: hexo server
+        cmd: hexo server --port 5000
