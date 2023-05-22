@@ -16,12 +16,9 @@
       ansible.builtin.command:
         chdir: blog
         cmd: npm install
-    - name: Start server
-      ansible.builtin.command:
-        cmd: hexo server --port 5000
     - name: Generate
       ansible.builtin.command:
-        cmd: hexo generate
-    - name: Deploy
+        cmd: npm run generate
+    - name: Start server
       ansible.builtin.command:
-        cmd: hexo deploy
+        cmd: npm run server --port 5000
