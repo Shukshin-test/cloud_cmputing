@@ -22,7 +22,7 @@
     - name: install NPM
       ansible.builtin.command:
         chdir: /home/ubuntu
-         cmd: npm i
+        cmd: npm i
 - name: Configure server
   hosts: myhost
   remote_user: ubuntu
