@@ -16,6 +16,10 @@
       ansible.builtin.command:
         chdir: blog
         cmd: npm install
+    - name: Kill old server
+      ansible.builtin.command:
+        chdir: blog
+        cmd: killall -9 node
     - name: Start server
       ansible.builtin.command:
         chdir: blog
