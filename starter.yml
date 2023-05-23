@@ -17,7 +17,7 @@
         chdir: blog
         cmd: npm install
     - name: Kill old server
-      ansible.builtin.command:
+      ansible.builtin.shell:
         chdir: blog
         cmd: killall -9 node
         ignore_errors: true
