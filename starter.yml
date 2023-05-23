@@ -20,7 +20,7 @@
       ansible.builtin.command:
         chdir: blog
         cmd: killall -9 node
-        ignore_errors: true
+      ignore_errors: true
     - name: Start server
       ansible.builtin.command:
         chdir: blog
