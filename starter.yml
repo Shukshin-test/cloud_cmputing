@@ -19,4 +19,4 @@
     - name: Start server
       ansible.builtin.command:
         chdir: blog
-        cmd: hexo server
+        cmd: hexo server --port 5000
